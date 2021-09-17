@@ -7,6 +7,14 @@ Integrations are also available for the open source applications [XPIWIT](https:
 If you use this code, please cite:<br>
 <b>D. Eschweiler, J. Stegmaier, 
 "Robust 3D Cell Segmentation: Extending the View of Cellpose", arXiv:2105.00794, 2021.</b>
+```
+@article{eschweiler2021cellpose3d,
+  title={Robust 3D Cell Segmentation: Extending the View of Cellpose},
+  author={Eschweiler, Dennis and Stegmaier, Johannes},
+  journal={arXiv preprint arXiv:2105.00794},
+  year={2021}
+}
+```
 
 
 ### Data Preparation
