@@ -2,7 +2,7 @@
 
 This repository contains code used for the 3D Cellpose approach proposed in [Preprint](https://arxiv.org/abs/2105.00794), which is an extension of the approach proposed by [Stringer et al.](https://doi.org/10.1038/s41592-020-01018-x).
 
-Integrations are also available for theopen source applications [XPIWIT](https://bitbucket.org/jstegmaier/xpiwit/downloads/) and [MorphographX](https://morphographx.org/).
+Integrations are also available for the open source applications [XPIWIT](https://bitbucket.org/jstegmaier/xpiwit/downloads/) and [MorphographX](https://morphographx.org/).
 
 If you use this code, please cite:<br>
 <b>D. Eschweiler, J. Stegmaier, 
