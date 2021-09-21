@@ -136,7 +136,7 @@ def cellpose_flowcontrol(fg_map, flow_x, flow_y, flow_z, niter=100, njobs=4,\
         
     # Reconstruct each clustered instance
     if verbose: print_timestamp('Reconstructing instances...')
-    pos_mask = binary_closing(pos_mask, selem=ball(1))
+    pos_mask = binary_closing(pos_mask, selem=ball(min_diameter//2))
     pos_mask = label(pos_mask)
     instances = pos_mask[(pos_x, pos_y, pos_z)]
     
