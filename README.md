@@ -5,12 +5,12 @@ This repository contains code used for the 3D Cellpose approach proposed in [Pre
 Integrations are also available for the open-source applications [XPIWIT](https://github.com/stegmaierj/XPIWITPipelines) and [MorphographX](https://morphographx.org/), which allow an application of the proposed extension from graphical user interfaces without programming knowledge.
 
 If you use this code, please cite:<br>
-<b>D. Eschweiler, J. Stegmaier, 
+<b>D. Eschweiler, R. S. Smith, J. Stegmaier, 
 "Robust 3D Cell Segmentation: Extending the View of Cellpose", arXiv:2105.00794, 2021.</b>
 ```
 @article{eschweiler2021cellpose3d,
   title={Robust 3D Cell Segmentation: Extending the View of Cellpose},
-  author={Eschweiler, Dennis and Stegmaier, Johannes},
+  author={Eschweiler, Dennis and Smith, Richard S. and Stegmaier, Johannes},
   journal={arXiv preprint arXiv:2105.00794},
   year={2021}
 }
