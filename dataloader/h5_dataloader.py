@@ -72,6 +72,9 @@ class MeristemH5Dataset(Dataset):
         self.mask_groups = mask_groups
         self.data_list = self._read_list()
         
+        if self.samples_per_epoch < len(self.data_list) and self.samples_per_epoch>0:
+            print('Only {0}/{1} files are used for training! Increase the samples per epoch.'.format(self.samples_per_epoch, len(self.data_list)))
+        
         # Get image statistics from up to 10 files
         if not self.no_img and 'image' in self.image_groups[0]:
             print('Getting statistics from images...')
@@ -156,9 +159,6 @@ class MeristemH5Dataset(Dataset):
     
     
     def __len__(self):
-        
-        if self.samples_per_epoch < len(self.data_list):
-            print('Only {0}/{1} files are used for training! Increase the samples per epoch.'.format(self.samples_per_epoch, len(self.data_list)))
         
         if self.samples_per_epoch<1 or self.samples_per_epoch==None:
             return len(self.data_list)
