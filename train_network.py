@@ -118,7 +118,7 @@ if __name__ == '__main__':
     parent_parser.add_argument(
         '--output_path',
         type=str,
-        default=r'D:\LfB\pytorchRepo\results\GAN_sampling',
+        default=r'D:\LfB\pytorchRepo\results\Cellpose3D_experiment',
         help='output path for test results'
     )
     
@@ -154,7 +154,7 @@ if __name__ == '__main__':
     parent_parser.add_argument(
         '--pretrained',
         type=str,
-        default=None,#(r'D:\LfB\pytorchRepo\results\Autoencoder_UNet3D_PixelShuffle_generator_TRIF_prob05\epoch=3999.ckpt',),
+        default=None,
         nargs='+',
         help='path to pretrained model weights'
     )
@@ -162,7 +162,7 @@ if __name__ == '__main__':
     parent_parser.add_argument(
         '--augmentations',
         type=str,
-        default=None,#r'D:\LfB\pytorchRepo\data\augments_default_05.json',
+        default=None,
         help='path to augmentation dict file'
     )
     
@@ -176,37 +176,15 @@ if __name__ == '__main__':
     parent_parser.add_argument(
         '--model',
         type=str,
-        default='GAN_sampling',
-        help='which model to load (UNet3D | UNet3D_PixelShuffle | UNet3D_Autoencoder | UNet2D | Cellpose3D | Cellpose2D | GAN | CycleGAN | HarmonicNet | GABi)'
+        default='Cellpose3D',
+        help='which model to load (Cellpose3D)'
     )
     
     parent_args = parent_parser.parse_known_args()[0]
     
     # load the desired network architecture
-    if parent_args.model.lower() == 'unet3d':        
-        from models.UNet3D import UNet3D as network
-    elif parent_args.model.lower() == 'unet3d_pixelshuffle':
-        from models.UNet3D_pixelshuffle import UNet3D_pixelshuffle as network
-    elif parent_args.model.lower() == 'unet3d_autoencoder':
-        from models.Autoencoder import Autoencoder as network
-    elif parent_args.model.lower() == 'unet2d':
-        from models.UNet2D import UNet2D as network
-    elif parent_args.model.lower() == 'cellpose3d':        
+    if parent_args.model.lower() == 'cellpose3d':        
         from models.UNet3D_cellpose import UNet3D_cellpose as network
-    elif parent_args.model.lower() == 'cellpose3d_sampling':        
-        from models.UNet3D_cellpose_sampling import UNet3D_cellpose as network
-    elif parent_args.model.lower() == 'cellpose2d':        
-        from models.UNet2D_cellpose import UNet2D_cellpose as network
-    elif parent_args.model.lower() == 'gan':
-        from models.GAN import GAN as network
-    elif parent_args.model.lower() == 'gan_sampling':
-        from models.GAN_sampling import GAN as network
-    elif parent_args.model.lower() == 'cyclegan':
-        from models.CycleGAN import CycleGAN as network
-    elif parent_args.model.lower() == 'harmonicnet':
-        from models.HarmonicNet import HarmonicNet as network
-    elif parent_args.model.lower() == 'gabi':
-        from models.GABi import GABi as network
     else:
         raise ValueError('Model {0} unknown.'.format(parent_args.model))
     
