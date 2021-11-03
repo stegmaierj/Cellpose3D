@@ -305,7 +305,7 @@ def prepare_images(data_path='', folders=[''], identifier='*.tif', descriptor=''
       
         
 def prepare_masks(data_path='', folders=[''], identifier='*.tif', descriptor='',\
-                  bg_label=0, get_flows=False, get_boundary=True, get_seeds=False, get_distance=True,\
+                  bg_label=0, get_flows=True, get_boundary=False, get_seeds=False, get_distance=True,\
                   corrupt_prob=0.0, zoom_factor=(1,1,1)):
      
     data_path = os.path.abspath(data_path)
