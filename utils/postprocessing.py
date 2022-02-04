@@ -111,19 +111,24 @@ def cellpose_flowcontrol(fg_map, flow_x, flow_y, flow_z, niter=100, njobs=4,\
     if verbose: print_timestamp('Initializing positions...')      
     # Initialize each position
     pos_x, pos_y, pos_z = np.indices(fg_map.shape, dtype=np.float32)
-    pos_x = torch.from_numpy(pos_x).int().long()
-    pos_y = torch.from_numpy(pos_y).int().long()
-    pos_z = torch.from_numpy(pos_z).int().long()
+    pos_x = torch.from_numpy(pos_x)
+    pos_y = torch.from_numpy(pos_y)
+    pos_z = torch.from_numpy(pos_z)
         
     # Iteratively move each pixel along the flow field   
     for i in range(niter):
         
         if verbose: print_timestamp('Iteration {0:0{2}}/{1}...', args=[i+1, niter, len(str(niter))])
         
-        # Update the position
-        pos_x = torch.clamp(pos_x - flow_x_torch[(pos_x.long(), pos_y.long(), pos_z.long())], 0, fg_map.shape[0]-1)
-        pos_y = torch.clamp(pos_y - flow_y_torch[(pos_x.long(), pos_y.long(), pos_z.long())], 0, fg_map.shape[1]-1)
-        pos_z = torch.clamp(pos_z - flow_z_torch[(pos_x.long(), pos_y.long(), pos_z.long())], 0, fg_map.shape[2]-1)
+        # Get updated position
+        new_x = torch.clamp(pos_x - flow_x_torch[(pos_x.long(), pos_y.long(), pos_z.long())], 0, fg_map.shape[0]-1)
+        new_y = torch.clamp(pos_y - flow_y_torch[(pos_x.long(), pos_y.long(), pos_z.long())], 0, fg_map.shape[1]-1)
+        new_z = torch.clamp(pos_z - flow_z_torch[(pos_x.long(), pos_y.long(), pos_z.long())], 0, fg_map.shape[2]-1)
+        
+        # Assign new positions
+        pos_x = new_x
+        pos_y = new_y
+        pos_z = new_z        
                                 
     # Convert tensor to numpy
     pos_x = pos_x.data.numpy().astype(np.uint16)
