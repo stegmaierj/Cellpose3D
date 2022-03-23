@@ -387,7 +387,7 @@ class MeristemH5Tiler(Dataset):
                     self.data_statistics['max'].append(np.max(image))
                     self.data_statistics['mean'].append(np.mean(image))
                     self.data_statistics['std'].append(np.std(image))
-                    perc02, perc98 = np.percentile(image, [10,100])
+                    perc02, perc98 = np.percentile(image, [2,98])
                     self.data_statistics['perc02'].append(perc02)
                     self.data_statistics['perc98'].append(perc98)
             
