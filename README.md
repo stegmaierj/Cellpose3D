@@ -1,6 +1,6 @@
 # Cellpose3D
 
-This repository contains code used for the 3D Cellpose approach proposed in [Preprint](https://arxiv.org/abs/2105.00794), which is an extension of the approach proposed by [Stringer et al.](https://doi.org/10.1038/s41592-020-01018-x).
+This repository contains code used for the 3D Cellpose approach proposed in a [Preprint](https://arxiv.org/abs/2105.00794), which is an extension of the approach proposed by [Stringer et al.](https://doi.org/10.1038/s41592-020-01018-x).
 
 Integrations are also available for the open-source applications [XPIWIT](https://github.com/stegmaierj/XPIWITPipelines) and [MorphographX](https://morphographx.org/), which allow an application of the proposed extension from graphical user interfaces without programming knowledge.
 
@@ -38,4 +38,8 @@ To prepare your own data, proceed as explained in the following steps:
   
   
 ### Training and Application
-For training and application use the provided scripts and make sure to adjust the data paths in the `models.UNet3D_cellpose` accordingly.
+For training and application use the provided scripts and make sure to adjust the data paths in the `models.UNet3D_cellpose` accordingly. Processing steps include:<br>
+- [Optional] Training the network using `train_network.py`.
+- Apply the network to predict gradient maps and foreground segmentation using `apply_network.py`. 
+- Apply the post-processing steps to reconstruct instance segmentations using `apply_cellpose.py`.
+
