@@ -39,7 +39,7 @@ To prepare your own data, proceed as explained in the following steps:
   
 ### Training and Application
 For training and application use the provided scripts and make sure to adjust the data paths in the `models.UNet3D_cellpose` accordingly. Processing steps include:<br>
-- [Optional] Training the network using `train_network.py`.
-- Apply the network to predict gradient maps and foreground segmentation using `apply_network.py`. 
-- Apply the post-processing steps to reconstruct instance segmentations using `apply_cellpose.py`.
+1. [Optional] Training the network using `train_network.py`.
+2. Apply the network to predict gradient maps and foreground segmentation using `apply_network.py`. 
+3. Apply the post-processing steps to reconstruct instance segmentations using `apply_cellpose.py`.
 
